@@ -1,0 +1,22 @@
+<div id="chat-directive" class="col-md-3 col-sm-3 col-xs-3 chat-column">
+    <div style="height:15px"></div>
+    <div ng-init="chat.loadChats()">
+        <div id="chatMessages">
+            <div ng-repeat="item in chat.chats">
+                <div ng-class="{'userChat text-right': item.lunchUsers == selectedUser}">
+                    {{ item.message }}
+                </div>
+                <div class="timestamp" ng-class="{'text-right': item.lunchUsers == selectedUser}">
+                    {{ item.timestamp  | date: 'shortTime' : '+6000' }}
+                </div>
+
+            </div>
+        </div>
+        <form ng-if="userSelected" id="chatInput" ng-submit="chat.create(chat.newMessage)">
+          <fieldset>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Type your message" ng-model="chat.newMessage">
+          </fieldset>
+        </form>
+
+    </div>
+</div>

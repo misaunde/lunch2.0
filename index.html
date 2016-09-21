@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="appname">
+
+  <head>
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="shared/angular-drag-and-drop-lists.css">
+    <link href="shared/ng-sortable.css" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.js"></script>
+    <script src="//cdn.backand.net/backand/dist/1.8.2/backand.min.js"></script>
+    <!-- <script src="https://api.backand.com:4000/socket.io/socket.io.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+    <!-- <script type="text/javascript" src="shared/ng-sortable.js"></script> -->
+    <script type="text/javascript" src="shared/angular-drag-and-drop-lists.js"></script>
+    <script type="text/javascript" src="shared/backand-socket-io.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+
+    <script src="app.js"></script>
+  </head>
+  <body ng-controller="MainCtrl">
+
+    <!-- <nav-bar></nav-bar> -->
+
+    <div class="container-fluid">
+        <div class="row">
+            <user-list-directive></user-list-directive>
+
+            <ng-view></ng-view>
+            <!-- <food-list-directive></food-list-directive> -->
+
+            <chat-directive></chat-directive>
+        </div>
+
+
+
+
+    </div>
+    <script type="text/javascript" src="directives/Nav/NavBarDirective.js"></script>
+    <script type="text/javascript" src="directives/Chat/ChatDirective.js"></script>
+    <script type="text/javascript" src="directives/UserList/UserListDirective.js"></script>
+    <script type="text/javascript" src="directives/FoodList/FoodListDirective.js"></script>
+    <script type="text/javascript" src="directives/Results/ResultsDirective.js"></script>
+    <script type="text/javascript" src="directives/Demo/DemoDirective.js"></script>
+    <script type="text/javascript" src="controllers/MainCtrl.js"></script>
+    <script type="text/javascript" src="services/UserService.js"></script>
+  </body>
+</html>

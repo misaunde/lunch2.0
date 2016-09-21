@@ -1,0 +1,75 @@
+<div id="food-list-directive" class="col-md-offset-3 col-md-6 col-sm-6">
+    <div style="height:15px"></div>
+    <div ng-init="readList()" class="row simpleDemo">
+
+        <!-- <div class="col-md-6 col-sm-6" ng-repeat="(listName, list) in models.lists">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ listName }}</h3>
+                </div>
+
+                    <ul dnd-list="list" class="list-group">
+                        <li ng-repeat="item in list"
+                            dnd-draggable="item"
+                            dnd-moved="list.splice($index, 1)"
+                            dnd-effect-allowed="move"
+                            dnd-selected="models.selected = item"
+                            dnd-drop="dropCallback(event, index, item, external, type, 'containerType')"
+                            class="list-group-item"
+                            ng-class="{'selected': models.selected === item}"
+                            >
+                            {{item.name}}
+                        </li>
+                    </ul>
+
+            </div>
+            <button ng-if="$index ==2" type="submit" class="button button-block">Submit</button>
+        </div> -->
+
+
+
+        <div class="col-md-6 col-sm-6 col-xs-6 scrolling-panel" id="main-food-list">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Food Places</h3>
+                </div>
+
+                <ul dnd-list="models.lists.A" class="list-group">
+                    <li ng-repeat="item in models.lists.A"
+                        dnd-draggable="item"
+                        dnd-moved="models.lists.A.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        dnd-selected="models.selected = item"
+                        class="list-group-item"
+                        ng-class="{'selected': models.selected === item}">
+                        {{item.name}}
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="col-md-offset-6 col-sm-offset-6 col-xs-offset-6 col-md-6 col-sm-6 col-xs-6" style="margin-top: 5px; margin-left: 49%;padding-left: 20px;">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Today's Picks</h3>
+                </div>
+
+                <ul dnd-list="models.lists.B" class="list-group" dnd-drop="dropCallback(event, index, item, external, type, 'containerType')">
+                    <li ng-repeat="item in models.lists.B"
+                        dnd-draggable="item"
+                        dnd-moved="models.lists.B.splice($index, 1)"
+                        dnd-effect-allowed="move"
+                        dnd-selected="models.selected = item"
+                        class="list-group-item"
+                        ng-class="{'selected': models.selected === item}">
+                        {{item.name}}
+                    </li>
+                </ul>
+
+            </div>
+            <button type="submit" class="button button-block" ng-click="userVoted()">Submit</button>
+        </div>
+
+    </div>
+</div>

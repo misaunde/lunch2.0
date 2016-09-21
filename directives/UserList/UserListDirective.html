@@ -1,0 +1,29 @@
+<div ng-init="userList.updateUserList()" id="test" class="col-md-3 col-sm-3 user-list">
+<button ng-if="userSelected" id="logo" type="submit" class="button button-block" ng-click="userList.reset()">Lunch Survey 2.0 <span class="beta">BETA</span></button>
+
+    <div ng-if="!userSelected" style="height:10%"></div>
+    <div ng-if="userSelected" style="height:75px"></div>
+    <div id="inner">
+        <span ng-if="!userSelected" class="white-font">
+            Select a User:
+        </span>
+        <div ng-repeat="user in userList.lunchUsers | orderBy: '-weight'">
+            <div ng-click="userList.selectUser(user);" class="grey-font" ng-class="{'selected': userSelected && user.id === selectedUser}">
+                <span ng-if="userSelected">
+                    {{ user.weight | number: 2 }}
+                </span>
+                <span>
+                    {{ user.name }}
+                </span>
+
+                <span ng-if="userSelected" ng-click="userList.userVoted(user); $event.stopPropagation()">
+                    <span ng-if="user.hasVoted" class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <span ng-if="!user.hasVoted" class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <button ng-if="userSelected && selectedUser === 1" type="submit" class="button button-block resultsButton" ng-click="getResults()">Calculate Results</button>
+
+</div>
