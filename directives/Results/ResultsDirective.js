@@ -1,4 +1,6 @@
-app.directive('resultsDirective', function($http, Backand) {
+var imDumb = true;
+
+app.directive('resultsDirective', function($http, Backand, $interval) {
   return {
     restrict: 'AE',
     replace: true,
@@ -10,7 +12,24 @@ app.directive('resultsDirective', function($http, Backand) {
             } else {
                 elem.delay('0').fadeOut(500);
             }
-        })
+
+        });
+
+        if (imDumb) {
+            imDumb = false;
+            var dots = 0;
+            console.log("GOT HERERE....")
+            crap = $interval(function() {
+                if(dots < 3) {
+                    $('#dots').append('.');
+                    dots++;
+                } else {
+                    $('#dots').html('');
+                    dots = 0;
+                }
+            }, 600);
+        }
+
     },
     controller: function($scope, $http, Backand) {
         $scope.results = {

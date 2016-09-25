@@ -89,29 +89,37 @@ app.directive('userListDirective', function($http, $location, Backand, UserServi
           return $http({
             method: 'PUT',
             url : Backand.getApiUrl() + $scope.userList.url + '/' + lunchUser.id,
-            data: lunchUser
+            data: lunchUser,
+            params: {
+              returnObject: true
+            }
           }).then(function(response) {
             $scope.userList.updateUserList();
-            return response.data;
+            console.log("here? ", response)
+            return response;
           });
         };
 
         $scope.userList.selectUser = function(user) {
             if (!$scope.userSelected) {
-                console.log("selected user: ", user.id)
                 UserService.user = user;
                 console.log("user is: ", user);
                 UserService.userId = user.id;
                 $scope.selectedUser = user.id;
                 $scope.userList.selectUserOnServer(user);
-                $location.path('/')
+                if (user.hasVoted) {
+                    $location.path('submit');
+                } else {
+                    $location.path('/');
+                }
             }
             $scope.userSelected = true;
         }
 
         $scope.userList.reset = function() {
             $scope.userSelected = false;
-            UserService.userId = null
+            UserService.userId = null;
+            UserService.user = null;
             $scope.selectedUser = null;
         }
 

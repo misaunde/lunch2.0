@@ -2,6 +2,10 @@
     <div style="height:15px"></div>
     <div class="row simpleDemo">
 
+        <h2 class="waiting" ng-if="userSelected && !resultsArray">
+            Waiting for results<span id="dots"></span>
+        </h2>
+
         <div  class="col-md-12 col-sm-12" ng-if="resultsArray">
             <div class="panel">
                 <div class="panel-heading">

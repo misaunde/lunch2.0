@@ -367,3 +367,13 @@ textarea {
     color: #ddd;
     font-size: 9px;
 }
+
+.pointer {
+    cursor: pointer;
+}
+
+.waiting {
+    margin-left: 30px;
+    margin-top: 15px;
+    color: #1ab188
+}

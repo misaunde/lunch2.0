@@ -9,7 +9,11 @@ app.config(function (BackandProvider, $routeProvider) {
     $routeProvider
         .when('/', {
             template   : '<food-list-directive></food-list-directive>',
-            // controller : 'MainCtrl'
+            controller: function($location, UserService) {
+                if (UserService &&  UserService.user && UserService.user.hasVoted) {
+                    $location.path("submit");
+                }
+            }
         })
         .when('/submit', {
             template: '<results-directive></results-directive>',

@@ -4,15 +4,15 @@
     <div ng-if="!userSelected" style="height:10%"></div>
     <div ng-if="userSelected" style="height:75px"></div>
     <div id="inner">
-        <span ng-if="!userSelected" class="white-font">
+        <h4 ng-if="!userSelected" class="white-font">
             Select a User:
-        </span>
+        </h4>
         <div ng-repeat="user in userList.lunchUsers | orderBy: '-weight'">
-            <div ng-click="userList.selectUser(user);" class="grey-font" ng-class="{'selected': userSelected && user.id === selectedUser}">
+            <div class="grey-font" ng-class="{'selected': userSelected && user.id === selectedUser}">
                 <span ng-if="userSelected">
                     {{ user.weight | number: 2 }}
                 </span>
-                <span>
+                <span ng-click="userList.selectUser(user);" ng-class="{'pointer': !userSelected}">
                     {{ user.name }}
                 </span>
 

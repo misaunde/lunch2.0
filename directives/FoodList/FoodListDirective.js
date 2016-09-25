@@ -104,7 +104,7 @@ app.directive('foodListDirective', function($http, $location, $filter,  Backand,
                     	"foodplaceId": $scope.models.lists.B[i].id,
                     	"foodplace": $scope.models.lists.B[i].name,
                     	"weight": UserService.user.weight,
-                    	"choice": (max - i),
+                    	"choice": i,
                     	"weightedVote": UserService.user.weight * (max - i),
                     }
                 }
